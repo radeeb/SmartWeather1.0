@@ -17,12 +17,14 @@ export class WeatherComponent implements OnInit {
   city = "Loading";
   temp = "Loading";
   conditions = "Loading";
+  iconID; //to show the weather icon
   zip1;
 
   constructor(private dataService:WeatherService){}
 
   ngOnInit() {
       this.getWeatherInfo();
+
   }
 
   getWeatherInfo(){
@@ -39,7 +41,14 @@ export class WeatherComponent implements OnInit {
           this.conditions = json.weather[0].description;
           //format the first letter to upper case
           this.conditions = this.conditions.charAt(0).toUpperCase() + this.conditions.slice(1);
-          this.temp = json.main.temp + String.fromCharCode(176) + ' F';
+          this.temp = json.main.temp;
+          this.temp = this.toInteger(this.temp) + String.fromCharCode(176) + ' F'; //round and concat
+          this.iconID = json.weather[0].icon;
       }.bind(this));
   }
+
+  toInteger(number){
+  return Math.round(Number(number));
+}
+
 }

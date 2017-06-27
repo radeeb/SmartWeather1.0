@@ -22,8 +22,10 @@ export class WeatherComponent {
   this.item.subscribe(snapshot => {
   console.log(snapshot.val())
   this.zip1 = snapshot.val();
-  console.log(this.zip1);
+  cons ole.log(this.zip1);
 });
   }
 
  }
+
+   google api key : AIzaSyDsMbhwyzVHOQ63Q034DVFA24eu6sw525s
