@@ -3,10 +3,12 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-      </button>
       <a class="navbar-brand" href="#">SmartWeather</a>
     </div>
+    <div class="btn-group">
+      <button class="btn" id="test0" autofocus="true">F</button>
+      <button class="btn" id="test1">C</button>
+</div>
     <img id="settingsIcon" src="./assets/settings.png" alt="settings">
   </div>
 
@@ -27,7 +29,7 @@
 <div class="col-sm-2 sidenav">
     <p>Your Saved Locations (ZIP)</p>
     <ul>
-        <li *ngFor=" let z of zipCodes">
+        <li *ngFor=" let z of zipCodes" >
             {{z}}
          </li>
     </ul>

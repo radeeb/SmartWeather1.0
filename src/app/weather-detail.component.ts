@@ -1,37 +1,36 @@
 import {ActivatedRoute} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
+import {WeatherService} from './weather.service'
 
 @Component ({
     selector: 'weather-detail',
     templateUrl: './weather-detail.component.html',
-    styleUrls: ['./app.component.css'],
+    styleUrls: ['./weather-detail.component.css'],
 })
 
 export class WeatherDetailComponent implements OnInit {
-
-    location = 'Springfield';
-    pressure = 'Loading';
+    city = 'Loading';
     humidity = 'Loading';
     visibilty = 'Loading';
     windSpeed = 'Loading';
     windDirection = 'Loading';
 
-constructor(
-    private route: ActivatedRoute){}
+constructor(private route: ActivatedRoute, private dataService: WeatherService){}
 
 ngOnInit(){
     this.getWeatherDetail();
 }
 
 getWeatherDetail(){
-    let url = 'http://api.openweathermap.org/data/2.5/weather?zip=65802' +
+    let url = 'http://api.openweathermap.org/data/2.5/weather?zip=' +
+    this.dataService.currentLocation +
     '&appid=b86dc3179d853356b32565e7717caca5'+
     '&units=imperial';
     fetch(url)
     .then(function(response){
         return response.json();
     }).then(function(json){
-        this.pressure = json.main.pressure;
+        this.city = json.name;
         this.humidity = json.main.humidity;
         this.visibilty = json.visibility;
         this.windSpeed = json.wind.speed;

@@ -28,8 +28,8 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeatherInfo(){
-      let url = 'http://api.openweathermap.org/data/2.5/weather?zip=65802' +
-      //this.zipCode +
+      let url = 'http://api.openweathermap.org/data/2.5/weather?zip=' +
+      this.dataService.currentLocation +
       '&appid=b86dc3179d853356b32565e7717caca5'+
       '&units=imperial';
       fetch(url)

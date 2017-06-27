@@ -2,6 +2,11 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class WeatherService {
-    savedLocations;
+    currentLocation = '65802';
+    savedLocations = ['65802', '11377', '94016'];
+
+    getSavedLocations(){
+        return this.savedLocations;
+    }
 
 }

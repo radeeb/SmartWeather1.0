@@ -19,9 +19,11 @@ nav a {
 
 .col-sm-2 {
     margin-left: 15px;
-    background-color: rgba(106,227,104, 0.3);
-    color: black;
+    background-color: #194775;
+    color: white;
+    font-size: 12pt;
     height: 200px;
+    padding: 2em;
 }
 
 
@@ -39,16 +41,24 @@ nav a {
     margin-left: 6em;
     width: 100%;
     font-size: 15pt;
+
 }
 
 .btn {
     border-radius: 0;
     font-weight: bold;
+    font-size: 12pt;
 }
+
 
 #settingsIcon{
     width: 25px;
     height: 25px;
     float: right;
-    margin: 5px;
+    margin: 12px;
+}
+
+.btn-group{
+    margin:5px;
+    float: right;
 }

@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {OnInit,Component} from '@angular/core';
+import {WeatherService} from './weather.service';
 
 //this component could be called a rout component
 @Component({
@@ -9,8 +10,19 @@ import {Component} from '@angular/core';
 //routerLink to tell the router where to navigate when the user clicks the link
 })
 
-export class AppComponent{
+export class AppComponent implements OnInit {
+
     title = 'SmartWeather';
     displayName = "Radeeb";
-    zipCodes = ['65802','11377','94016'];
+    zipCodes;
+
+    constructor(private dataService: WeatherService){}
+
+    ngOnInit(){
+    this.zipCodes = this.dataService.getSavedLocations();
+    }
+
+    hello(){
+        console.log("Hello");
+    }
 }
